@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello world</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">{{content}}</div>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            content: 'hello world'
+        }
+    })
+    setTimeout(function () {
+        vm.$data.content = 'bye world'
+    },2000)
+</script>
+</body>
+</html>
