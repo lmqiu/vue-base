@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件参数校验与非props特性</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <child :content="hello world"></child>
+</div>
+<script>
+    Vue.component('child',{
+        //type:传递的类型 required: true 指的是content参数必传 default指的是content的默认值 validator更多约束
+        props: {
+            content: {
+                type: [String,Number],
+                // required: true,
+                // default: 'default value',
+                // validator:function (value) {
+                //     return value.length > 5
+                // }
+            }
+        },
+        template: '<div>{{content}}</div>',
+        data () {
+            return {
+
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#root',
+    })
+</script>
+</body>
+</html>

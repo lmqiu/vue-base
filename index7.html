@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件传值</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <counter @change='handleChange' :count="0"></counter>
+    <counter @change='handleChange':count="1"></counter>
+    <div>{{total}}</div>
+</div>
+<script>
+    var counter = {
+        props:{
+            count:0
+        },
+        data () {
+            return {
+                number: this.count
+            }
+        },
+        template: '<div @click="handleClick">{{number}}</div>',
+        methods: {
+            handleClick () {
+                this.number++
+                this.$emit('change',1)
+            }
+        }
+    }
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            total: 1
+        },
+        components:{
+            counter: counter
+        },
+        methods: {
+            handleChange (value) {
+                this.total = this.total + value
+            }
+        }
+    })
+</script>
+</body>
+</html>

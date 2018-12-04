@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的插槽（slot）</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <child>
+        <p slot="header">dell</p>
+    </child>
+</div>
+<script>
+    Vue.component('child',{
+        template: '<div><p>hello</p><slot name="header">默认内容</slot></div>',
+    })
+    var vm = new Vue({
+        el: '#root',
+        data: {
+
+        }
+    })
+</script>
+</body>
+</html>
