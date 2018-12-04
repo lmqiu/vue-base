@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的样式绑定 class和数组绑定</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <style>
+        .activated{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div @click="handleDivClick"
+         :class="[activated]"
+    >
+        hello world
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            activated: ''
+        },
+        methods: {
+            handleDivClick () {
+                if (this.activated === 'activated'){
+                    this.activated = ''
+                } else {
+                    this.activated = 'activated'
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

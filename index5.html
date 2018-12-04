@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue中的条件渲染</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-if="show">{{content}}</div>
+    <div v-else>bye world</div>
+    <!--<div v-show="show">{{content}}</div>-->
+</div>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            show: false,
+            content: 'hello world'
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的样式绑定 class的对象绑定</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+    <style>
+        .activated{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div @click="handleDivClick"
+         :class="{activated: isActivated}"
+    >
+        hello world
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            isActivated: false
+        },
+        methods: {
+            handleDivClick () {
+                this.isActivated = !this.isActivated
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的样式绑定 style改变样式</title>
+    <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+<body>
+<div id="root">
+    <div :style="styleObj"
+         @click="handleDivClick"
+    >
+        hello world
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#root',
+        data: {
+            styleObj: {
+                color: 'black'
+            }
+        },
+        methods: {
+            handleDivClick () {
+                this.styleObj.color = this.styleObj.color === 'black'? 'red': 'black'
+            }
+        }
+    })
+</script>
+</body>
+</html>
